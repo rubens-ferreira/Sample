@@ -1,0 +1,15 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./BankApi/Dockerfile
+    ports:
+      - "5001:8080"
+
+  react-app:
+    build:
+      context: ./BankWeb
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
